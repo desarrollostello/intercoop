@@ -1,0 +1,64 @@
+{
+    "name": "laravel/laravel",
+    "description": "The Laravel Framework.",
+    "keywords": ["framework", "laravel"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": ">=5.5.9",
+        "laravel/framework": "5.2.*",
+        "kris/laravel-form-builder": "^1.8",
+        "laracasts/flash": "^2.0",
+        "mckay/flash": "^1.0.5",
+        "fzaninotto/faker": "^1.6",
+        "wisembly/elephant.io": "~3.0",
+        "intervention/image": "^2.3",
+        "jenssegers/agent": "^2.3",
+        "oriceon/oauth-5-laravel": "dev-master",
+        "spatie/laravel-backup": "^3.10",
+        "vinkla/pusher": "^2.4",
+        "laracasts/utilities": "*",
+        "vinkla/hashids": "^3.0",
+        "spatie/laravel-tail": "^1.1",
+        "guzzlehttp/guzzle": "^6.2",
+        "waavi/sanitizer": "^1.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "0.9.*",
+        "phpunit/phpunit": "~4.0",
+        "symfony/css-selector": "2.8.*|3.0.*",
+        "symfony/dom-crawler": "2.8.*|3.0.*"
+    },
+    "autoload": {
+        "classmap": [
+            "database"
+        ],
+        "psr-4": {
+            "Pheaks\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/TestCase.php"
+        ]
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "php artisan key:generate"
+        ],
+        "post-install-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postInstall",
+            "php artisan optimize"
+        ],
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "php artisan optimize"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist"
+    }
+}
